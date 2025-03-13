@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Details</title>
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="player-details-container">
+        <button id="go-back" onclick="goBack()">Go Back</button>
+        <div id="player-details"></div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.location.href = "index.html";
+        }
+
+        // Fetch player details from URL params
+        const urlParams = new URLSearchParams(window.location.search);
+        const playerId = urlParams.get('id');
+
+        const cohortName = '2803-PUPPIES';
+        const APIURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/players/${playerId}`;
+
+        async function fetchPlayerDetails() {
+            try {
+                const response = await fetch(APIURL);
+                const data = await response.json();
+                const player = data.data.player;
+
+                document.getElementById('player-details').innerHTML = `
+                    <img src="${player.imageUrl}" alt="${player.name}">
+                    <h2>${player.name}</h2>
+                    <p>Breed: ${player.breed}</p>
+                `;
+            } catch (error) {
+                console.error('Error fetching player details:', error);
+            }
+        }
+
+        fetchPlayerDetails();
+    </script>
+</body>
+</html>
