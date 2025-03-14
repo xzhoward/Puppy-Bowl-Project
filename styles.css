@@ -37,7 +37,7 @@ button {
   padding: 10px 15px;
   margin-top: 10px;
   border: none;
-  background-color: #28a745;
+  background-color: #d6ab33;
   color: white;
   cursor: pointer;
   border-radius: 5px;
@@ -69,7 +69,7 @@ input, select, button {
 }
 
 button[type="submit"] {
-  background-color: #007bff;
+  background-color: #ffae00;
   color: white;
   font-weight: bold;
   display: block; /* Ensure always visible */
@@ -78,7 +78,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #b38000;
 }
 
 #player-details-container {
@@ -92,7 +92,7 @@ button[type="submit"]:hover {
 
 #go-back {
   padding: 10px;
-  background-color: red;
+  background-color: rgb(255, 149, 0);
   color: white;
   border: none;
   cursor: pointer;
